@@ -74,10 +74,10 @@ model Work_Experience {
   staff            Staff     @relation(fields: [staff_id], references: [staff_id], onDelete: Cascade)
 }
 
-model Projects {
+model Project {
   project_id          Int                   @id @default(autoincrement())
   project_name        String                @db.VarChar(255)
-  projec_description  String                @db.Text
+  project_description  String                @db.Text
   
   // Relations
   project_technology  Project_Technology[]
@@ -97,7 +97,7 @@ model Project_Technology {
   technology_id Int
   
   // Relations
-  project       Projects   @relation(fields: [project_id], references: [project_id], onDelete: Cascade)
+  project       Project   @relation(fields: [project_id], references: [project_id], onDelete: Cascade)
   technology    Technology @relation(fields: [technology_id], references: [technology_id], onDelete: Cascade)
   
   @@id([project_id, technology_id])
@@ -110,7 +110,7 @@ model Project_Staff {
   staff_role String   @db.VarChar(255)
   
   // Relations
-  project    Projects @relation(fields: [project_id], references: [project_id], onDelete: Cascade)
+  project    Project @relation(fields: [project_id], references: [project_id], onDelete: Cascade)
   staff      Staff    @relation(fields: [staff_id], references: [staff_id], onDelete: Cascade)
   
   @@unique([project_id, staff_id, staff_role], name: "unique_role")
