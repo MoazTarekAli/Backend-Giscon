@@ -1,0 +1,117 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Staff {
+  staff_id         Int                @id @default(autoincrement())
+  staff_name       String             @db.VarChar(255)
+  title            String?            @db.VarChar(255)
+  email            String             @unique @db.VarChar(255)
+  phone            String             @db.VarChar(255)
+  summary          String?            @db.Text
+  
+  // Relations
+  staff_skills     Staff_Skills[]
+  education        Education[]
+  work_experience  Work_Experience[]
+  project_staff    Project_Staff[]
+}
+
+model Skills {
+  skill_id     Int              @id @default(autoincrement())
+  staff_name   String           @unique @db.VarChar(255)
+  skill_type   String?          @db.VarChar(255)
+  
+  // Relations
+  staff_skills Staff_Skills[]
+}
+
+model Staff_Skills {
+  staff_id Int
+  skill_id Int
+  
+  // Relations
+  staff    Staff  @relation(fields: [staff_id], references: [staff_id], onDelete: Cascade)
+  skill    Skills @relation(fields: [skill_id], references: [skill_id], onDelete: Cascade)
+  
+  @@id([staff_id, skill_id])
+}
+
+model Education {
+  education_id   Int       @id @default(autoincrement())
+  staff_id       Int
+  degree         String    @db.VarChar(255)
+  institution    String    @db.VarChar(255)
+  field_of_study String?   @db.VarChar(255)
+  start_date     DateTime  @db.Date
+  end_date       DateTime? @db.Date
+  
+  // Relations
+  staff          Staff     @relation(fields: [staff_id], references: [staff_id], onDelete: Cascade)
+}
+
+model Work_Experience {
+  work_id          Int       @id @default(autoincrement())
+  staff_id         Int
+  company          String    @db.VarChar(255)
+  work_title       String    @db.VarChar(255)
+  responsibilities String    @db.Text
+  start_date       DateTime  @db.Date
+  end_date         DateTime? @db.Date
+  
+  // Relations
+  staff            Staff     @relation(fields: [staff_id], references: [staff_id], onDelete: Cascade)
+}
+
+model Projects {
+  project_id          Int                   @id @default(autoincrement())
+  project_name        String                @db.VarChar(255)
+  projec_description  String                @db.Text
+  
+  // Relations
+  project_technology  Project_Technology[]
+  project_staff       Project_Staff[]
+}
+
+model Technology {
+  technology_id      Int                   @id @default(autoincrement())
+  technology_name    String                @db.VarChar(255)
+  
+  // Relations
+  project_technology Project_Technology[]
+}
+
+model Project_Technology {
+  project_id    Int
+  technology_id Int
+  
+  // Relations
+  project       Projects   @relation(fields: [project_id], references: [project_id], onDelete: Cascade)
+  technology    Technology @relation(fields: [technology_id], references: [technology_id], onDelete: Cascade)
+  
+  @@id([project_id, technology_id])
+}
+
+model Project_Staff {
+  role_id    Int      @id @default(autoincrement())
+  project_id Int
+  staff_id   Int
+  staff_role String   @db.VarChar(255)
+  
+  // Relations
+  project    Projects @relation(fields: [project_id], references: [project_id], onDelete: Cascade)
+  staff      Staff    @relation(fields: [staff_id], references: [staff_id], onDelete: Cascade)
+  
+  @@unique([project_id, staff_id, staff_role], name: "unique_role")
+}
