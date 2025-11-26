@@ -125,9 +125,9 @@ export const getStaffsSchema: FastifySchema = {
                 pagination: {
                     type: 'object',
                     properties: {
-                    page: { type: 'number' },
-                    limit: { type: 'number' },
-                    total: { type: 'number' }
+                        page: { type: 'number' },
+                        limit: { type: 'number' },
+                        total: { type: 'number' }
                     }
                 }
             }

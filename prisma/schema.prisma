@@ -28,9 +28,9 @@ model Staff {
   project_staff    Project_Staff[]
 }
 
-model Skills {
+model Skill {
   skill_id     Int              @id @default(autoincrement())
-  staff_name   String           @unique @db.VarChar(255)
+  skill_name   String           @unique @db.VarChar(255)
   skill_type   String?          @db.VarChar(255)
   
   // Relations
@@ -43,7 +43,7 @@ model Staff_Skills {
   
   // Relations
   staff    Staff  @relation(fields: [staff_id], references: [staff_id], onDelete: Cascade)
-  skill    Skills @relation(fields: [skill_id], references: [skill_id], onDelete: Cascade)
+  skill    Skill @relation(fields: [skill_id], references: [skill_id], onDelete: Cascade)
   
   @@id([staff_id, skill_id])
 }

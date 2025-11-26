@@ -6,6 +6,7 @@ import { prisma, connectDatabase, disconnectDatabase } from './config/database';
 import staffroutes from './routes/staff.route';
 import workRoutes from './routes/work.route';
 import educationRoutes from './routes/education.route';
+import skillRoutes from './routes/skill.route';
 
 // Database plugin
 const databasePlugin = async (fastify: any) => {
@@ -30,7 +31,9 @@ export const buildApp = () => {
 
   app.register(staffroutes, { prefix: '/staff' });
   app.register(workRoutes, { prefix: '/work' });
-  app.register(educationRoutes, { prefix: 'education' });
+  app.register(educationRoutes, { prefix: '/education' });
+  app.register(skillRoutes, { prefix: '/skill' })
+  
   // Register plugins
   app.register(cors);
   app.register(helmet);

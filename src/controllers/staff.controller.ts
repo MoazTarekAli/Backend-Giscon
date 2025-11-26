@@ -52,7 +52,7 @@ export class StaffController {
     }
 
     async updateStaffById(
-        request: FastifyRequest<{ Params: { staff_id: string }; Body: UpdateStaffInput }>,
+        request: FastifyRequest<{ Params: { staff_id: string }, Body: UpdateStaffInput }>,
         reply: FastifyReply
     ) {
         try {
