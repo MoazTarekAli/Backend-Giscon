@@ -6,8 +6,7 @@ export const createStaffSkillSchema: FastifySchema = {
         required: ['skill_id', 'staff_id'],
         properties: {
             staff_id: { type: 'number' },
-            skill_id: { type: 'number' },
-            skill_name: { type: 'string' }
+            skill_id: { type: 'number' }
         }
     },
     response: {
