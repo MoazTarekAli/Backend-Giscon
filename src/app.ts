@@ -10,6 +10,7 @@ import skillRoutes from './routes/skill.route';
 import staffSkillRoutes from './routes/staffSkill.route';
 import projectRoutes from './routes/project.route';
 import technologyRoutes from './routes/technology.route';
+import projectTechnologyRoutes from './routes/projectTechnology.route';
 
 // Database plugin
 const databasePlugin = async (fastify: any) => {
@@ -40,6 +41,7 @@ export const buildApp = () => {
   app.register(staffSkillRoutes, { prefix: '/staffskill' });
   app.register(projectRoutes, { prefix: '/project' });
   app.register(technologyRoutes, { prefix: '/technology' })
+  app.register(projectTechnologyRoutes, { prefix: '/projecttechnology' })
 
   // Register plugins
   app.register(cors);

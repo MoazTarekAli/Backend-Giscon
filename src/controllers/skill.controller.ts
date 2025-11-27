@@ -6,7 +6,7 @@ const skillService = new SkillService();
 
 export class SkillController{
     async createSkill(
-        request: FastifyRequest<{ Body: CreateSkillInput }>,
+        request: FastifyRequest <{ Body: CreateSkillInput }>,
         reply: FastifyReply
     ) {
         try {
