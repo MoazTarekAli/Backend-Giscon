@@ -19,16 +19,19 @@ export class ProjectService {
 
     async getProjects(page: number = 1, limit: number = 10) {
         const skip = (page - 1) * limit;
-        const projects = await prisma.project.findMany({
-            skip,
-            take: limit
-        });
+        const [projects, total] = await Promise.all([
+            prisma.project.findMany({
+                skip,
+                take: limit
+            }),
+            prisma.project.count()
+        ]);
         return {
             data: projects,
             pagination: {
                 page,
                 limit,
-                total: projects.length
+                total: total
             }
         }
     }
