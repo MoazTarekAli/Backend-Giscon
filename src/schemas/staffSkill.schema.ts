@@ -1,6 +1,7 @@
 import { FastifySchema } from "fastify";
 
 export const createStaffSkillSchema: FastifySchema = {
+    tags: ['staff-skill'],
     body: {
         type: 'object',
         required: ['skill_id', 'staff_id'],
@@ -31,6 +32,7 @@ export const createStaffSkillSchema: FastifySchema = {
 };
 
 export const getStaffSkillsSchema: FastifySchema = {
+    tags: ['staff-skill'],
     params: {
         type: 'object',
         required: ['staff_id'],
@@ -60,6 +62,7 @@ export const getStaffSkillsSchema: FastifySchema = {
 };
 
 export const deleteStaffSkillSchema: FastifySchema = {
+    tags: ['staff-skill'],
     querystring: {
         type: 'object',
         required: ['skill_id', 'staff_id'],
@@ -76,6 +79,7 @@ export const deleteStaffSkillSchema: FastifySchema = {
 };
 
 export const deleteAllStaffSkillsSchema: FastifySchema = {
+    tags: ['staff-skill'],
     params: {
         type: 'object',
         required: ['staff_id'],

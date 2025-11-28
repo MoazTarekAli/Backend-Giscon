@@ -1,6 +1,7 @@
 import { FastifySchema } from "fastify";
 
 export const createProjectTechnologySchema: FastifySchema = {
+    tags: ['project-technology'],
     body: {
         type: 'object',
         required: ['project_id', 'technology_id'],
@@ -30,6 +31,7 @@ export const createProjectTechnologySchema: FastifySchema = {
 }
 
 export const getProjectTechnologySchema: FastifySchema = {
+    tags: ['project-technology'],
     params: {
         type: 'object',
         required: ['project_id'],
@@ -58,6 +60,7 @@ export const getProjectTechnologySchema: FastifySchema = {
 }
 
 export const deleteProjectTechnologySchema: FastifySchema = {
+    tags: ['project-technology'],
     querystring: {
         type: 'object',
         required: ['project_id', 'technology_id'],
@@ -74,6 +77,7 @@ export const deleteProjectTechnologySchema: FastifySchema = {
 }
 
 export const deleteAllProjectTechnologySchema: FastifySchema = {
+    tags: ['project-technology'],
     params: {
         type: 'object',
         required: ['project_id'],

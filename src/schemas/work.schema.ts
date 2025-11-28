@@ -1,6 +1,7 @@
 import { FastifySchema } from 'fastify';
 
 export const createWorkSchema: FastifySchema = {
+    tags: ['work'],
     body: {
         type: 'object',
         required: ['staff_id', 'company', 'work_title', 'responsibilities', 'start_date'],
@@ -30,6 +31,7 @@ export const createWorkSchema: FastifySchema = {
 };
 
 export const getWorkSchema: FastifySchema = {
+    tags: ['work'],
     params: {
         type: 'object',
         required: ['work_id'],
@@ -54,6 +56,7 @@ export const getWorkSchema: FastifySchema = {
 };
 
 export const getAllStaffWorkSchema: FastifySchema = {
+    tags: ['work'],
     params: {
         type: 'object',
         required: ['staff_id'],
@@ -87,6 +90,7 @@ export const getAllStaffWorkSchema: FastifySchema = {
 };
 
 export const updateWorkSchema: FastifySchema = {
+    tags: ['work'],
     params: {
         type: 'object',
         required: ['work_id'],
@@ -122,6 +126,7 @@ export const updateWorkSchema: FastifySchema = {
 };
 
 export const deleteWorkSchema: FastifySchema = {
+    tags: ['work'],
     params: {
         type: 'object',
         required: ['work_id'],
@@ -137,6 +142,7 @@ export const deleteWorkSchema: FastifySchema = {
 };
 
 export const deleteAllWorksSchema: FastifySchema = {
+    tags: ['work'],
     params: {
         type: 'object',
         required: ['staff_id'],

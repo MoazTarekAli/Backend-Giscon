@@ -1,6 +1,7 @@
 import { FastifySchema } from 'fastify';
 
 export const createEducationSchema: FastifySchema = {
+    tags: ['education'],
     body: {
         type: 'object',
         required: ['staff_id', 'degree', 'institution', 'start_date'],
@@ -30,6 +31,7 @@ export const createEducationSchema: FastifySchema = {
 };
 
 export const getEducationSchema: FastifySchema = {
+    tags: ['education'],
     params: {
         type: 'object',
         required: ['education_id'],
@@ -54,6 +56,7 @@ export const getEducationSchema: FastifySchema = {
 };
 
 export const getAllStaffEducationSchema: FastifySchema = {
+    tags: ['education'],
     params: {
         type: 'object',
         required: ['staff_id'],
@@ -87,6 +90,7 @@ export const getAllStaffEducationSchema: FastifySchema = {
 };
 
 export const updateEducationSchema: FastifySchema = {
+    tags: ['education'],
     params: {
         type: 'object',
         required: ['education_id'],
@@ -122,6 +126,7 @@ export const updateEducationSchema: FastifySchema = {
 };
 
 export const deleteEducationSchema: FastifySchema = {
+    tags: ['education'],
     params: {
         type: 'object',
         required: ['education_id'],
@@ -137,6 +142,7 @@ export const deleteEducationSchema: FastifySchema = {
 };
 
 export const deleteAllEducationsSchema: FastifySchema = {
+    tags: ['education'],
     params: {
         type: 'object',
         required: ['staff_id'],

@@ -1,6 +1,7 @@
 import { FastifySchema } from "fastify";
 
 export const createProjectStaffSchema: FastifySchema = {
+    tags: ['project-staff'],
     body: {
         type: 'object',
         required: ['project_id', 'staff_id', 'staff_role'],
@@ -26,6 +27,7 @@ export const createProjectStaffSchema: FastifySchema = {
 };
 
 export const getProjectStaffSchema: FastifySchema = {
+    tags: ['project-staff'],
     params: {
         type: 'object',
         required: ['staff_id'],
@@ -58,6 +60,7 @@ export const getProjectStaffSchema: FastifySchema = {
 };
 
 export const updateProjectStaffSchema: FastifySchema = {
+    tags: ['project-staff'],
     params: {
         type: 'object',
         required: ['role_id'],
@@ -89,6 +92,7 @@ export const updateProjectStaffSchema: FastifySchema = {
 };
 
 export const deleteProjectStaffSchema: FastifySchema = {
+    tags: ['project-staff'],
     params: {
         type: 'object',
         required: ['role_id'],

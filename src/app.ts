@@ -1,4 +1,6 @@
 import Fastify from 'fastify';
+import swagger from '@fastify/swagger';
+import swaggerUi from '@fastify/swagger-ui';
 import cors from '@fastify/cors';
 import helmet from '@fastify/helmet';
 import { config } from './config/env';
@@ -32,6 +34,42 @@ const databasePlugin = async (fastify: any) => {
 export const buildApp = () => {
   const app = Fastify({
     logger: config.nodeEnv !== 'production',
+  });
+
+  app.register(swagger, {
+    openapi: {
+        info: {
+            title: 'CV Builder API',
+            description: 'API documentation for CV Builder application',
+            version: '1.0.0'
+        },
+        servers: [
+            {
+                url: 'http://localhost:3000',
+                description: 'Development server'
+            }
+        ],
+        tags: [
+            { name: 'staff', description: 'Staff related endpoints' },
+            { name: 'skill', description: 'skill related endpoints' },
+            { name: 'staff-skill', description: 'staff-skill related endpoints' },
+            { name: 'education', description: 'education related endpoints' },
+            { name: 'work', description: 'work related endpoints' },
+            { name: 'technology', description: 'technology related endpoints' },
+            { name: 'projects', description: 'Project related endpoints' },
+            { name: 'project-technology', description: 'project-technology related endpoints' },
+            { name: 'project-staff', description: 'Project-Staff relationship endpoints' }
+        ]
+    }
+  });
+
+  app.register(swaggerUi, {
+    routePrefix: '/docs',
+    uiConfig: {
+        docExpansion: 'list',
+        deepLinking: false
+    },
+    staticCSP: true
   });
 
   // Register Routes

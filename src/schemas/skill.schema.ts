@@ -1,6 +1,7 @@
 import { FastifySchema } from "fastify";
 
 export const createSkillSchema: FastifySchema = {
+    tags: ['skill'],
     body: {
         type: 'object',
         required: ['skill_name'],
@@ -22,6 +23,7 @@ export const createSkillSchema: FastifySchema = {
 };
 
 export const updateSkillSchema: FastifySchema = {
+    tags: ['skill'],
     params: {
         type: 'object',
         required: ['skill_id'],
@@ -49,6 +51,7 @@ export const updateSkillSchema: FastifySchema = {
 };
 
 export const getSkillSchema: FastifySchema = {
+    tags: ['skill'],
     params: {
         type: 'object',
         required: ['skill_id'],
@@ -69,6 +72,7 @@ export const getSkillSchema: FastifySchema = {
 };
 
 export const getSkillsSchema: FastifySchema = {
+    tags: ['skill'],
     querystring: {
         type: 'object',
         properties: {
@@ -105,6 +109,7 @@ export const getSkillsSchema: FastifySchema = {
 };
 
 export const deleteSkillSchema: FastifySchema = {
+    tags: ['skill'],
     params: {
         type: 'object',
         required: ['skill_id'],

@@ -1,6 +1,7 @@
 import { FastifySchema } from "fastify";
 
 export const createProjectSchema: FastifySchema = {
+    tags: ['projects'],
     body: {
         type: 'object',
         required: ['project_name', 'project_description'],
@@ -22,6 +23,7 @@ export const createProjectSchema: FastifySchema = {
 }
 
 export const getProjectSchema: FastifySchema = {
+    tags: ['projects'],
     params: {
         type: 'object',
         required: ['project_id'],
@@ -42,6 +44,7 @@ export const getProjectSchema: FastifySchema = {
 }
 
 export const getProjectsSchema: FastifySchema = {
+    tags: ['projects'],
     querystring: {
         type: 'object',
         properties: {
@@ -78,6 +81,7 @@ export const getProjectsSchema: FastifySchema = {
 };
 
 export const updateProjectSchema: FastifySchema = {
+    tags: ['projects'],
     params: {
         type: 'object',
         required: ['project_id'],
@@ -105,6 +109,7 @@ export const updateProjectSchema: FastifySchema = {
 }
 
 export const deleteProjectSchema: FastifySchema = {
+    tags: ['projects'],
     params: {
         type: 'object',
         required: ['project_id'],
