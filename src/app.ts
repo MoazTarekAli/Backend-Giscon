@@ -9,11 +9,11 @@ import staffroutes from './routes/staff.route';
 import workRoutes from './routes/work.route';
 import educationRoutes from './routes/education.route';
 import skillRoutes from './routes/skill.route';
-import staffSkillRoutes from './routes/staffSkill.route';
+import staffSkillRoutes from './routes/staff-skill.route';
 import projectRoutes from './routes/project.route';
 import technologyRoutes from './routes/technology.route';
-import projectTechnologyRoutes from './routes/projectTechnology.route';
-import projectStaffRoutes from './routes/projectStaff.route';
+import projectTechnologyRoutes from './routes/project-technology.route';
+import projectStaffRoutes from './routes/project-staff.route';
 
 // Database plugin
 const databasePlugin = async (fastify: any) => {
@@ -69,6 +69,9 @@ export const buildApp = () => {
         docExpansion: 'list',
         deepLinking: false
     },
+    theme: {
+        title: 'CV Builder API Documentation'
+    },
     staticCSP: true
   });
 
@@ -77,11 +80,11 @@ export const buildApp = () => {
   app.register(workRoutes, { prefix: '/work' });
   app.register(educationRoutes, { prefix: '/education' });
   app.register(skillRoutes, { prefix: '/skill' });
-  app.register(staffSkillRoutes, { prefix: '/staffskill' });
+  app.register(staffSkillRoutes, { prefix: '/staff-skill' });
   app.register(projectRoutes, { prefix: '/project' });
   app.register(technologyRoutes, { prefix: '/technology' })
-  app.register(projectTechnologyRoutes, { prefix: '/projecttechnology' })
-  app.register(projectStaffRoutes, { prefix: '/projectstaff' })
+  app.register(projectTechnologyRoutes, { prefix: '/project-technology' })
+  app.register(projectStaffRoutes, { prefix: '/project-staff' })
 
   // Register plugins
   app.register(cors);

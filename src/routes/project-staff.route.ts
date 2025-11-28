@@ -5,7 +5,7 @@ import {
     getProjectStaffSchema,
     updateProjectStaffSchema,
     deleteProjectStaffSchema
-} from "../schemas/projectStaff.schema";
+} from "../schemas/project-staff.schema";
 
 const projectStaffController = new ProjectStaffController();
 

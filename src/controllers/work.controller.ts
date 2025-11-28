@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { WorkService } from '../services/work.service';
-import { CreateWorkExperienceInput, UpdateWorkExperienceInput } from '../types/work.types';
+import { CreateWorkExperienceInput, UpdateWorkExperienceInput } from '../types/work.type';
 
 const workService = new WorkService();
 

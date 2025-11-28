@@ -1,4 +1,4 @@
-import { CreateStaffInput, UpdateStaffInput, StaffResponse } from '../types/staff.types';
+import { CreateStaffInput, UpdateStaffInput, StaffResponse } from '../types/staff.type';
 import { prisma } from '../config/database';
 
 export class StaffService {

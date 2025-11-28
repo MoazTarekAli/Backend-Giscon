@@ -1,5 +1,5 @@
 import { prisma } from "../config/database";
-import { CreateTechnologyInput, UpdateTechnologyInput, TechnologyResponse } from "../types/technology.types";
+import { CreateTechnologyInput, UpdateTechnologyInput, TechnologyResponse } from "../types/technology.type";
 
 export class TechnologyService {
     async createTechnology(data: CreateTechnologyInput): Promise<TechnologyResponse> {

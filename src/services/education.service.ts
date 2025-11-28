@@ -1,4 +1,4 @@
-import { CreateEducationInput, UpdateEducationInput, EducationResponse } from "../types/education.types";
+import { CreateEducationInput, UpdateEducationInput, EducationResponse } from "../types/education.type";
 import { prisma } from "../config/database";
 
 export class EducationService {

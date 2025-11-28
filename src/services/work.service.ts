@@ -1,4 +1,4 @@
-import { CreateWorkExperienceInput, UpdateWorkExperienceInput, WorkExperienceResponse } from "../types/work.types";
+import { CreateWorkExperienceInput, UpdateWorkExperienceInput, WorkExperienceResponse } from "../types/work.type";
 import { prisma } from '../config/database';
 
 export class WorkService {

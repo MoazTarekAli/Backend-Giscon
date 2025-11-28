@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import { ProjectService } from "../services/project.service";
-import { CreateProjectInput, UpdateProjectInput } from "../types/project.types";
+import { CreateProjectInput, UpdateProjectInput } from "../types/project.type";
 
 const projectService = new ProjectService();
 

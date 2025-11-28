@@ -1,4 +1,4 @@
-import { CreateSkillInput, UpdateSkillInput, SkillResponse } from "../types/skill.types";
+import { CreateSkillInput, UpdateSkillInput, SkillResponse } from "../types/skill.type";
 import { prisma } from '../config/database';
 
 export class SkillService {

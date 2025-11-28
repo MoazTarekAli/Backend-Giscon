@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { EducationService } from "../services/education.service";
-import { CreateEducationInput, UpdateEducationInput } from "../types/education.types";
+import { CreateEducationInput, UpdateEducationInput } from "../types/education.type";
 
 const educationService = new EducationService();
 

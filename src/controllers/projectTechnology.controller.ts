@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
-import { ProjectTechnologyService } from '../services/projectTechnology.service';
-import { CreateProjectTechnologyInput } from '../types/projectTechnology.types';
+import { ProjectTechnologyService } from '../services/project-technology.service';
+import { CreateProjectTechnologyInput } from '../types/project-technology.type';
 
 const projectTechnologyService = new ProjectTechnologyService();
 

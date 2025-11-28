@@ -5,7 +5,7 @@ import {
     createStaffSkillSchema,
     deleteAllStaffSkillsSchema,
     deleteStaffSkillSchema
-} from "../schemas/staffSkill.schema";
+} from "../schemas/staff-skill.schema";
 
 const staffSkillController = new StaffSkillController();
 

@@ -1,5 +1,5 @@
 import { prisma } from '../config/database';
-import { CreateProjectStaffInput, UpdateProjectStaffInput, ProjectStaffResponse } from '../types/projectStaff.types';
+import { CreateProjectStaffInput, UpdateProjectStaffInput, ProjectStaffResponse } from '../types/project-staff.type';
 
 export class ProjectStaffService {
     private mapToResponse(projectStaff: any): ProjectStaffResponse {

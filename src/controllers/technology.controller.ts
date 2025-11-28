@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { TechnologyService } from '../services/technology.service';
-import { CreateTechnologyInput, UpdateTechnologyInput } from '../types/technology.types';
+import { CreateTechnologyInput, UpdateTechnologyInput } from '../types/technology.type';
 
 const technologyService = new TechnologyService();
 

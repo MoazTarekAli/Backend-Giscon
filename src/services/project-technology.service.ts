@@ -1,6 +1,6 @@
 import { prisma } from '../config/database';
-import { CreateProjectTechnologyInput } from '../types/projectTechnology.types';
-import { TechnologyResponse } from '../types/technology.types';
+import { CreateProjectTechnologyInput } from '../types/project-technology.type';
+import { TechnologyResponse } from '../types/technology.type';
 
 export class ProjectTechnologyService {
     async createProjectTechnology (data: CreateProjectTechnologyInput): Promise <{ data: TechnologyResponse[], total: number}> {

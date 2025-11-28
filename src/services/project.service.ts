@@ -1,4 +1,4 @@
-import { CreateProjectInput, UpdateProjectInput, ProjectResponse } from "../types/project.types";
+import { CreateProjectInput, UpdateProjectInput, ProjectResponse } from "../types/project.type";
 import { prisma } from '../config/database';
 
 export class ProjectService {

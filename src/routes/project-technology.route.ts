@@ -5,7 +5,7 @@ import {
     getProjectTechnologySchema,
     deleteAllProjectTechnologySchema,
     deleteProjectTechnologySchema
-} from "../schemas/projectTechnology.schema";
+} from "../schemas/project-technology.schema";
 
 const projectTechnologyController = new ProjectTechnologyController();
 

@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import { SkillService } from "../services/skill.service";
-import { CreateSkillInput, UpdateSkillInput } from "../types/skill.types";
+import { CreateSkillInput, UpdateSkillInput } from "../types/skill.type";
 
 const skillService = new SkillService();
 
