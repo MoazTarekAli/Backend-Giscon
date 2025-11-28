@@ -15,7 +15,16 @@ export class WorkService {
     }
 
     async createWork(data: CreateWorkExperienceInput): Promise<WorkExperienceResponse> {
-        const work = await prisma.work_Experience.create({ data });
+        const work = await prisma.work_Experience.create({ 
+            data: {
+                staff_id: data.staff_id,
+                company: data.company,
+                work_title: data.work_title,
+                responsibilities: data.responsibilities,
+                start_date: new Date(data.start_date),
+                end_date: new Date(data.end_date ?? '')
+            }
+        });
         return this.mapToResponse(work);
     }
     

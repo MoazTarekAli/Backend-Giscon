@@ -13,7 +13,7 @@ export interface CreateEducationInput {
     degree: string,
     institution: string,
     field_of_study?: string,
-    start_date: Date,
+    start_date: string,
     end_date?: Date
 }
 

@@ -18,13 +18,10 @@ export class StaffService {
         return this.mapToResponse(staff);
     }
 
-    async getStaffById (staff_id: number): Promise<StaffResponse | null> {
+    async getStaffById (staff_id: number): Promise<StaffResponse> {
         const staff = await prisma.staff.findUnique({
             where: { staff_id }
         });
-        if (!staff) {
-            return null;
-        }
         return this.mapToResponse(staff);
     }
 

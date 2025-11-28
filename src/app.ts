@@ -14,6 +14,7 @@ import projectRoutes from './routes/project.route';
 import technologyRoutes from './routes/technology.route';
 import projectTechnologyRoutes from './routes/project-technology.route';
 import projectStaffRoutes from './routes/project-staff.route';
+import cvRoutes from './routes/cv.route';
 
 // Database plugin
 const databasePlugin = async (fastify: any) => {
@@ -58,7 +59,8 @@ export const buildApp = () => {
             { name: 'technology', description: 'technology related endpoints' },
             { name: 'projects', description: 'Project related endpoints' },
             { name: 'project-technology', description: 'project-technology related endpoints' },
-            { name: 'project-staff', description: 'Project-Staff relationship endpoints' }
+            { name: 'project-staff', description: 'Project-Staff relationship endpoints' },
+            { name: 'cv', description: 'CV generation endpoints' }
         ]
     }
   });
@@ -85,7 +87,7 @@ export const buildApp = () => {
   app.register(technologyRoutes, { prefix: '/technology' })
   app.register(projectTechnologyRoutes, { prefix: '/project-technology' })
   app.register(projectStaffRoutes, { prefix: '/project-staff' })
-
+  app.register(cvRoutes, { prefix: '/cv' })
   // Register plugins
   app.register(cors);
   app.register(helmet);

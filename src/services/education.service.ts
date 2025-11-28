@@ -15,7 +15,16 @@ export class EducationService {
     }
 
     async createEducation(data: CreateEducationInput): Promise<EducationResponse> {
-        const education = await prisma.education.create({ data });
+        const education = await prisma.education.create({ 
+            data: {
+                staff_id: data.staff_id,
+                degree: data.degree,
+                institution: data.institution,
+                field_of_study: data.field_of_study,
+                start_date: new Date(data.start_date),
+                end_date: new Date(data.end_date ?? '')
+            }
+        });
         return this.mapToResponse(education);
     }
 

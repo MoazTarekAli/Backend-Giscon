@@ -1,5 +1,5 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
-import { StaffSkillService } from '../services/staff.skill.service';
+import { StaffSkillService } from '../services/staff-skill.service';
 import { CreateStaffSkillInput } from '../types/staff-skill.type';
 
 const staffSkillService = new StaffSkillService();
