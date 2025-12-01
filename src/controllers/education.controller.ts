@@ -52,7 +52,14 @@ export class EducationController {
     ) {
         try {
             const education_id = parseInt(request.params.education_id);
-            const education = await educationService.updateEducationById(education_id, request.body);
+            const data: UpdateEducationInput = {
+                degree: request.body.degree,
+                field_of_study: request.body.field_of_study,
+                institution: request.body.institution,
+                start_date: new Date(request.body.start_date ?? Date.now()),
+                end_date: new Date(request.body.end_date ?? '')
+            };
+            const education = await educationService.updateEducationById(education_id, data);
             return reply.code(200).send(education);
         } catch (error: any) {
             request.log.error(error);

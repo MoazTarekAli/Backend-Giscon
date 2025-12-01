@@ -2,7 +2,7 @@ import { prisma } from '../config/database';
 import { CreateStaffSkillInput } from "../types/staff-skill.type";
 import { SkillResponse } from "../types/skill.type";
 
-export  class StaffSkillService {
+export class StaffSkillService {
     private mapToResponse(skill: any): SkillResponse {
         return {
             skill_id: skill.skill_id,

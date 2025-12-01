@@ -57,7 +57,14 @@ export class WorkController {
     ) {
         try {
             const work_id = parseInt(request.params.work_id);
-            const work = await workService.updateWorkById(work_id, request.body);
+            const data: UpdateWorkExperienceInput = {
+                            company: request.body.company,
+                            responsibilities: request.body.responsibilities,
+                            work_title: request.body.work_title,
+                            start_date: new Date(request.body.start_date ?? Date.now()),
+                            end_date: new Date(request.body.end_date ?? '')
+                        };
+            const work = await workService.updateWorkById(work_id, data);
 
             if (!work) {
                 return reply.code(404).send({ error: 'Work not found' });

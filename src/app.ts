@@ -37,6 +37,14 @@ export const buildApp = () => {
     logger: config.nodeEnv !== 'production',
   });
 
+  // Register CORS first with proper configuration
+  app.register(cors, {
+    origin: 'http://localhost:4000', // Your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+  });
+
   app.register(swagger, {
     openapi: {
         info: {
@@ -77,6 +85,9 @@ export const buildApp = () => {
     staticCSP: true
   });
 
+  app.register(helmet);
+  app.register(databasePlugin);
+
   // Register Routes
   app.register(staffroutes, { prefix: '/staff' });
   app.register(workRoutes, { prefix: '/work' });
@@ -88,30 +99,6 @@ export const buildApp = () => {
   app.register(projectTechnologyRoutes, { prefix: '/project-technology' })
   app.register(projectStaffRoutes, { prefix: '/project-staff' })
   app.register(cvRoutes, { prefix: '/cv' })
-  // Register plugins
-  app.register(cors);
-  app.register(helmet);
-  app.register(databasePlugin);
-
-  // Health check endpoint with database connection test
-  /*app.get('/health', async (request, reply) => {
-    try {
-      // Test database connection
-      await prisma.$queryRaw`SELECT 1`;
-      return { 
-        status: 'ok',
-        database: 'connected',
-        timestamp: new Date().toISOString()
-      };
-    } catch (error) {
-      reply.status(503);
-      return { 
-        status: 'error',
-        database: 'disconnected',
-        error: error instanceof Error ? error.message : 'Unknown error'
-      };
-    }
-  });*/
 
   return app;
 };
