@@ -28,6 +28,8 @@ DB_USER=postgres
 DB_PASSWORD=your_password_here
 DB_NAME=staff_management
 DATABASE_URL=postgresql://postgres:your_password_here@localhost:5432/staff_management
+
+FRONTEND_URL=http://localhost:4000
 ```
 
 **Important**: Replace `your_password_here` with your actual PostgreSQL password.

@@ -39,9 +39,8 @@ export const buildApp = () => {
 
   // Register CORS first with proper configuration
   app.register(cors, {
-    origin: 'http://localhost:4000', // Your frontend URL
+    origin: config.frontendURL?.toString(),
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
   });
 

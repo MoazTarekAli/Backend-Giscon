@@ -8,6 +8,7 @@ export const config = {
   nodeEnv: process.env.NODE_ENV || 'development',
   seedPath: process.env.DB_SEED,
   initilize: process.env.DB_INITIALIZE,
+  frontendURL: process.env.FRONTEND_URL,
   database: {
     url: process.env.DATABASE_URL || 'postgresql://user:password@localhost:5432/dbname',
     host: process.env.DB_HOST || 'localhost',
