@@ -174,6 +174,7 @@ export class CVService {
                                         <div class="project-card">
                                             <h3>${this.escapeHtml(project.project_name)}</h3>
                                             <p>${this.escapeHtml(project.project_description)}</p>
+                                            <p>${this.escapeHtml(project.staff_role)}</p>
                                             ${staffData.projectTechnologies[id].total > 0 ? `
                                                 <div class="tech-tags">
                                                     ${staffData.projectTechnologies[id].data.map(tech => `
